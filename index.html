@@ -22,7 +22,7 @@
             $.mobile.allowCrossDomainPages = true;
             $.ajaxSetup({ crossDomain: true });
             $.mobile.loading('show');
-            $.getJSON('http://192.168.2.15/mvcservice/CarService.svc/GetCars', function (data) {
+            $.getJSON('http://giamodels.com/CarService.svc/GetCars', function (data) {
                 var str = '<li data-role="list-divider">My Cars <span class="ui-li-count">' + data.length + '</span></li>';
                 $.each(data, function (index, elem) {
                     str += '<li><a href="detail.html?carid=' + elem.CarId + '">';

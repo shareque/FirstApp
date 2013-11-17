@@ -30,7 +30,7 @@
             $.mobile.loading('show');
             var carid = GetParameterValues('carid');
             var str = '';
-            $.getJSON('http://192.168.2.15/mvcservice/CarService.svc/GetCars', function (data) {
+            $.getJSON('http://giamodels.com/CarService.svc/GetCars', function (data) {
 
                 $.each(data, function (index, elem) {
                     if (elem.CarId === carid) {
