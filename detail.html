@@ -34,8 +34,8 @@
 
                 $.each(data, function (index, elem) {
                     if (elem.CarId === carid) {
-                        str += ' <img src=' + elem.CarImage + '/>';
                         str += '<h2>' + elem.CarName + '</h2>';
+                        str += ' <img src=' + elem.CarImage + '>';
                         str += '<p>' + elem.CarDescription + '</p>';
                         str += '<p class="ui-li-aside">' + elem.CarPrice + '</p>';
                     }
