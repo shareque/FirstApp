@@ -6,7 +6,7 @@
         id        = "com.phonegap.hello-world"
         version   = "1.0.0">
 
-    <name>My First Mobile App</name>
+    <name>Mobile App</name>
 
     <description>
         My First Mobile App sample application that responds to the device ready event from web service.
