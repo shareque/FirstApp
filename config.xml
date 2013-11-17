@@ -9,11 +9,11 @@
     <name>My First Mobile App</name>
 
     <description>
-        My First Mobile App sample application that responds to the deviceready event.
+        My First Mobile App sample application that responds to the device ready event from web service.
     </description>
 
-    <author href="http://itbeestech.com" email="support@itbeestech.com">
-        IT BEES Technologies
+    <author href="http://www.onsource.in" email="shareque@outlook.com">
+        mirza Shareque
     </author>
 
     <!--
