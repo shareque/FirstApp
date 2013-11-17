@@ -14,27 +14,34 @@
     <script src="assets/js/nativedroid.script.js" type="text/javascript"></script>
     <script src="phonegap.js" type="text/javascript"></script>
     <script type="text/javascript">
-
-
-
+        function GetParameterValues(param) {
+            var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < url.length; i++) {
+                var urlparam = url[i].split('=');
+                if (urlparam[0] == param) {
+                    return urlparam[1];
+                }
+            }
+        };
         $(function () {
             $.support.cors = true;
             $.mobile.allowCrossDomainPages = true;
             $.ajaxSetup({ crossDomain: true });
             $.mobile.loading('show');
+            var carid = GetParameterValues('carid');
+            var str = '';
             $.getJSON('http://192.168.2.15/mvcservice/CarService.svc/GetCars', function (data) {
-                var str = '<li data-role="list-divider">My Cars <span class="ui-li-count">' + data.length + '</span></li>';
+
                 $.each(data, function (index, elem) {
-                    str += '<li><a href="detail.html?carid=' + elem.CarId + '">';
-                    str += ' <img src=' + elem.CarImage + '>';
-                    str += '<h2>' + elem.CarName + '</h2>';
-                    str += '<p>' + elem.CarDescription + '</p>';
-                    str += '<p class="ui-li-aside">' + elem.CarPrice + '</p>';
-                    str += '</a></li>';
+                    if (elem.CarId === carid) {
+                        str += ' <img src=' + elem.CarImage + '/>';
+                        str += '<h2>' + elem.CarName + '</h2>';
+                        str += '<p>' + elem.CarDescription + '</p>';
+                        str += '<p class="ui-li-aside">' + elem.CarPrice + '</p>';
+                    }
                 });
 
-                $("#ulCarList").html(str);
-                $("#ulCarList").listview("refresh");
+                $("#ulCardetail").html(str);
                 $.mobile.loading('hide');
             });
 
@@ -48,9 +55,8 @@
                 First Mobile App</h1>
             <a href="#pgIndex"><i class='icon-android'></i></a>
         </div>
-        <div data-role="content">
-            <ul data-role="listview" id="ulCarList" data-inset="false" data-icon="false" data-divider-theme="b">
-            </ul>
+        <div id="ulCardetail" data-role="content">
+            
         </div>
         <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme='b'>
             <h1>
