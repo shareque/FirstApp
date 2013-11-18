@@ -25,7 +25,7 @@
             $.getJSON('http://giamodels.com/CarService.svc/GetCars', function (data) {
                 var str = '<li data-role="list-divider">My Cars <span class="ui-li-count">' + data.length + '</span></li>';
                 $.each(data, function (index, elem) {
-                    str += '<li><a href="detail.html?carid=' + elem.CarId + '">';
+                    str += '<li><a href="detail.html?carid=' + elem.CarId + '"  data-ajax="false">';
                     str += ' <img src=' + elem.CarImage + '>';
                     str += '<h2>' + elem.CarName + '</h2>';
                     str += '<p>' + elem.CarDescription + '</p>';
