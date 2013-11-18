@@ -15,6 +15,9 @@
     <script src="phonegap.js" type="text/javascript"></script>
     <script type="text/javascript">
 
+        function exitFromApp() {
+            navigator.app.exitApp();
+        }
 
 
         $(function () {
@@ -46,11 +49,14 @@
         <div data-role="header" data-position="fixed" data-tap-toggle="false" data-theme='b'>
             <h1>
                 First Mobile App</h1>
-            <a href="#pgIndex"><i class='icon-android'></i></a>
+            <a href="index.html" data-ajax="false"><i class='icon-home'></i></a>
         </div>
         <div data-role="content">
             <ul data-role="listview" id="ulCarList" data-inset="false" data-icon="false" data-divider-theme="b">
             </ul>
+            <div class="ui-block-a">
+                <button type="submit" data-theme="b" data-ajax="false" onclick="exitFromApp();">
+                    Exit</button></div>
         </div>
         <div data-role="footer" data-position="fixed" data-tap-toggle="false" data-theme='b'>
             <h1>
