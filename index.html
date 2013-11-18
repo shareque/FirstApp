@@ -38,11 +38,11 @@
         }
 
         function exitFromApp() {
-            navigator.notification.prompt(
+            navigator.notification.confirm(
             'Do you want to Exit? ',  // message
             onPrompt,                  // callback to invoke
             'Application Exit',            // title
-            ['Yes', 'No']            // buttonLabels
+             'Cancel', 'Exit'            // buttonLabels
            // 'Application Exit'         // defaultText
         );
         }
