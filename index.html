@@ -28,9 +28,25 @@
 
         // device exit
         //
-        function exitFromApp() {
-            navigator.app.exitApp();
+        function onPrompt(results) {
+            var result = results.buttonIndex;
+            if (result) {
+                navigator.app.exitApp();
+            }
+            else
+                return false;
         }
+
+        function exitFromApp() {
+            navigator.notification.prompt(
+            'Do you want to Exit? ',  // message
+            onPrompt,                  // callback to invoke
+            'Registration',            // title
+            ['Yes', 'No'],             // buttonLabels
+            'Application Exit'         // defaultText
+        );
+        }
+
 
         // alert dialog dismissed
         function alertDismissed() {
